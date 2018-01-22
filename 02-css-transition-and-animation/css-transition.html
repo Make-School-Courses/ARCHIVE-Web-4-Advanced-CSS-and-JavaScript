@@ -12,6 +12,7 @@
       background-color: #f00;
       /* Sets the time to apply changes to this element */
       transition: 400ms;
+      /* s = secs ms = milliseconds  */
     }
     
     .a:hover {
@@ -280,14 +281,19 @@
       color: white;
       cursor: pointer;
     }
+    /* LoVe and HAte 
+      :link :visited :hover :active
+    */
     
     .f:hover>div {
+      background-color: orange;
       transform: scale(1.25) rotate(12deg);
     }
     
     .f:active>div {
       background-color: blue;
     }
+
 
   </style>
   <!-- ******************************************* -->
@@ -762,7 +768,7 @@
       transition: 4000ms;
     }
     
-    .color-rotate:hover { 
+    .color-rotate:hover {
       filter: hue-rotate(360deg);
     }
 

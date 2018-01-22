@@ -188,10 +188,14 @@
       0% {
         transform: rotate(0) scale(0);
       }
+      
+      12% {
+        transform: rotate(0) scale(1.0);
+      }
       25% {
         transform: rotate(0) scale(0.25);
       }
-      50% {
+      38.5% {
         transform: rotate(0) scale(0.25);
       }
       75% {
@@ -211,7 +215,9 @@
   <!-- Marker Bounce -->
   <div>
     <div class="marker-container">
-      <div class="marker"></div>
+      <div class="marker-wrap">
+        <div class="marker"></div>
+      </div>
       <div class="marker-shadow"></div>
     </div>
   </div>
@@ -265,12 +271,30 @@
       animation-timing-function: ease-in;
     }
     
-    @keyframes marker-animation {
+    .marker-wrap {
+      animation-name: marker-wrap-animation;
+      animation-duration: 100ms;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-timing-function: linear;
+      animation-delay: 300ms;
+    }
+    
+    @keyframes marker-wrap-animation {
       from {
-        transform: translate(10px, 2px) rotate(-45deg);
+        transform: rotateY(0);
       }
       to {
-        transform: translate(10px, 10px) rotate(-45deg);
+        transform: rotateY(360deg);
+      }
+    }
+    
+    @keyframes marker-animation {
+      from {
+        transform: translate(10px, 2px) rotateZ(-45deg);
+      }
+      to {
+        transform: translate(10px, 10px) rotateZ(-45deg);
       }
     }
     

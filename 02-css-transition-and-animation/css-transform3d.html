@@ -42,9 +42,21 @@ This example creates two 3d cubes using
     <div class="face"></div>
     <div class="face"></div>
     <div class="face"></div>
-    <div class="face"></div>
-    <div class="face"></div>
-    <div class="face"></div>
+    <div class="face">
+      <div style="width:100%; height:100%;background-image: url(images/image-1.jpg); background-size: cover"></div>
+    </div>
+    <div class="face">
+      <form>
+        <div><input type='text'></div>
+        <div>
+          <label>Check box</label>
+          <input type="checkbox">
+        </div>
+      </form>
+    </div>
+    <div class="face">
+      <h1>Hello World</h1>
+    </div>
     <div class="marker"></div>
   </div>
 
@@ -93,7 +105,7 @@ This example creates two 3d cubes using
   
   .cube-3 {
     animation-name: cube-3-animation;
-    animation-duration: 10000ms;
+    animation-duration: 15000ms;
     animation-iteration-count: infinite;
     animation-direction: normal;
     animation-timing-function: linear;

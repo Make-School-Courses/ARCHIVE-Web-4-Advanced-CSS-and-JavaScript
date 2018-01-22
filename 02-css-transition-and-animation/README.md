@@ -230,7 +230,18 @@ This is perfect for:
 - Use JavaScript to trigger an interaction
 - Create an onboarding animation. 
   - https://cdn-images-1.medium.com/max/1600/1*RBAB3gII3BmxwSkjWgfDYg.gif
-  - 
+  
+### Animation ideas
+
+Try making any of these if need an idea. 
+
+- Progress bar
+- Loading spinner
+- Animated button
+- Sunrise/Sunset
+- Tabbar icon
+- Animated hamburger menu
+- Onboarding
 
 ### Examples 
 
@@ -240,7 +251,7 @@ Examples of CSS web interaction...
 - https://www.pinterest.com/search/pins/?q=micro%20interactions
 - https://www.behance.net/gallery/42185273/Micro-Interactions
 
--- https://medium.com/ux-in-motion/5-mistakes-to-avoid-when-designing-micro-interactions-a6f638ee6a86
+- https://medium.com/ux-in-motion/5-mistakes-to-avoid-when-designing-micro-interactions-a6f638ee6a86
 
 ## Lesson 
 
