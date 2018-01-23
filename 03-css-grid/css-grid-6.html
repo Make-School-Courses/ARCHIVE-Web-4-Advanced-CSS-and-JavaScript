@@ -1,5 +1,3 @@
-
- 
 <!-- Define a container -->
 <div class="container">
   <!-- 
@@ -20,18 +18,33 @@
     /* Declare the container as display grid */
     display: grid;
     /* declare three columns woth px sizes */
-    grid-template-columns: repeat(6, 100px);
+    grid-template-columns: repeat(6, 1fr);
     /* Declare the size of three rows */
     grid-template-rows: 50px repeat(4, 200px);
     /* The gap between rows and columns */
     grid-gap: 10px 10px;
-    
-    grid-template-areas: "z y y y y y"
-                         "a a b b b b"
-                         "c c b b b b"
-                         "d d d d e e"
+    grid-template-areas: "z y y y y y" 
+                         "a a b b b b" 
+                         "c c b b b b" 
+                         "d d d d e e" 
                          "d d d d f f";
-    
+  }
+  
+  /* use a media query to rearrange the layout for mobile */
+  
+  @media only screen and (max-device-width: 414px) {
+    body {
+      background-color: red;
+    }
+    .container {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 50px repeat(4, 400px 600px);
+      grid-template-areas: "z z z y y y" 
+                           "a a a c c c" 
+                           "b b b b b b" 
+                           "e e e f f f" 
+                           "d d d d d d";
+    }
   }
   
   .grid-a {
@@ -94,5 +107,5 @@
     font-size: 28;
     font-family: Helvetica;
   }
-  
+
 </style>
