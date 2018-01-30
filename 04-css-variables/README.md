@@ -11,17 +11,59 @@ No, really, CSS varaibles are amazeballs!
 
 ## CSS Variables 
 
-Define a variable with: 
+CSS variables allow you to assign values to idenitifers and use these in place of values
+in style rules. 
 
-`--var-name: value;`
+Can't contactenate CSS variables with strings.
 
-Names begin with `--`, I know this looks weird. 
+CSS variables are case sensitive.
 
-Access a variable's value with: 
+Check support with:
 
-`var()`
+```css
+@support (--css: variables) {
+  selector {
+    /* Fall back styles */
+  }
+}
+```
 
-For example: 
+CSS variables can do math when they contain a unit! Use a number 
+and convert to a unit with `calc()`
 
-`var(--var-name)`
+```css
+--width: 100;
+
+width: calc(var(--width) * 1px);
+```
+
+## Basic Usage 
+
+Declare a variable:
+
+```css
+selector {
+  --some-name: 20px;
+}
+```
+
+Use a variable:
+
+```css
+selector {
+  margin: var(--some-var);
+}
+```
+
+Or use with a default value: 
+
+```css
+selector {
+  margin: var(--some-var, 10px);
+}
+```
+
+### Use variables to create DRY code
+
+Use variables when a value appears more than once.
 
