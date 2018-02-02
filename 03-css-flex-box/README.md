@@ -22,7 +22,6 @@ one dimensional system.
 ## Challenges 
 
 Layout items for a menu
-
 Layout items on a grid
 
  

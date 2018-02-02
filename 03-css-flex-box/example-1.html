@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="header">
+    <h1>Title</h1>
+    <div>
+      <a href="#">About</a>
+      <a href="#">Things</a>
+    </div>
+    <div>
+      <input type="text" placeholder="search">
+      <button>Go</button>
+    </div>
+  </div>
+  
+  <div class="main">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+  <div class="footer">
+    <ul>
+      <li><a href="#">Things</a></li>
+      <li><a href="#">Whatevs</a></li>
+      <li><a href="#">Memes</a></li>
+      <li><a href="#">Junk</a></li>
+    </ul>
+    
+    <ul>
+      <li><a href="#">Other</a></li>
+      <li><a href="#">Stuff</a></li>
+      <li><a href="#">Wigdets</a></li>
+      <li><a href="#">Fluff</a></li>
+    </ul>
+    
+    <ul>
+      <li><a href="#">Serious</a></li>
+      <li><a href="#">Important</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+  }
+  
+  .header {
+    height: 100px;
+    background-color: aquamarine;
+  }
+  
+  .footer {
+    background-color: blanchedalmond;
+    height: 200px;
+  }
+  
+  .main {
+    width: calc((100px + (24px * 2)) * 3);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr)
+  }
+  
+  .main > div {
+    width: 100px;
+    height: 100px;
+    border: 4px solid;
+    border-radius: 5px;
+    margin: 20px;
+  }
+</style>
