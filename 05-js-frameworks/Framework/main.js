@@ -67,20 +67,33 @@ for (var i = 0; i < 100; i++) {
   }))
 }
 
-// generate a valeu to activate some animations
+
+// ***************************************************
+// Uncomment the block below to animate over time
+// generate a value to activate some animations
 // We will count to 2000 and then repeat
 
-var time = 0
+//var time = 0
+//
+//function onFrame2(dt) {
+//  time += 1
+//  // Every frame call update and pass time to all of the "range animators"
+//  for (var i in boxes) {
+//    boxes[i].update(time)
+//  }
+//  
+//  if (time > 2000) time = 0 // Loop at 2000
+//  requestAnimationFrame(onFrame2)
+//}
+//
+//requestAnimationFrame(onFrame2)
+// ***************************************************
 
-function onFrame2(dt) {
-  time += 1
-  // Every frame call update and pass time to all of the "range animators"
+// This block animates the boxes as the mouse moves. 
+window.onmousemove = function(e) {
   for (var i in boxes) {
-    boxes[i].update(time)
+    boxes[i].update(e.pageX)
   }
-  
-  if (time > 2000) time = 0 // Loop at 2000
-  requestAnimationFrame(onFrame2)
-}
+} 
 
-requestAnimationFrame(onFrame2)
+
