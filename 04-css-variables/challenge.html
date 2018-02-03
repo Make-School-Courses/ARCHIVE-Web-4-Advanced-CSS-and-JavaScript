@@ -35,6 +35,7 @@
     
     let x = 100
     let y = 100
+    let direction = 1
     
     function update() {
       updateCoords()
@@ -43,6 +44,7 @@
     }
     
     function moveSprite() {
+      sprite.style.setProperty('--direction', direction)
       sprite.style.setProperty('--x', x)
       sprite.style.setProperty('--y', y)
     }
@@ -61,11 +63,13 @@
     
     left_btn.onclick = function(e) {
       x -= 100
+      direction = -1
       update()
     }
     
     right_btn.onclick = function(e) {
       x += 100
+      direction = 1
       update()
     }
     

@@ -31,6 +31,8 @@
     self.y = y || 0
     self.z = z || 0
     
+    self.el.style.position = 'absolute'
+    self.el.style.display = 'block'
     self.el.style.transform = `translate3d(${self.x}px, ${self.y}px, ${self.z}px)`;
   }
   

@@ -15,7 +15,6 @@ Use the concepts from class.
     - translate, rotate, scale etc.
 - Create a JS framework for your project
   
-
 ## Get started 
 
 1. Make a GitHub repo 
@@ -26,6 +25,15 @@ Use the concepts from class.
   - For more complex latouts plan with a 12 columns
 3. Think about how you will use everything covered 
 in class...
+
+- Mood board
+- User Stories
+- Wireframes
+- Mockups with Sketch
+- Mock up interactions with https://www.invisionapp.com
+- User Test UX Testing is important!
+- Repeat (back to wireframes/user stories)
+- Build app
 
 ## Project Ideas 
 
@@ -52,7 +60,7 @@ in class...
   - Sky clouds sun moon reflects time of day and weather conditions
   
 - The internet wishlist says: 
-  - "I really want a universal tool that tracks all the stuff I by as it ships to me."
+  - "I really want a universal tool that tracks all the stuff I buy as it ships to me."
   
 ### Your portfolio
 

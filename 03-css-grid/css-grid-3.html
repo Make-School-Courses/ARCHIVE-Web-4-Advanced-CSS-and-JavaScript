@@ -34,9 +34,9 @@
     The named areas below define where elements with
     those names are placed on the grid. 
     */
-    grid-template-areas:  "head head head hr" 
-                          "side main main main" 
-                          "foot foot fr   fr";
+    grid-template-areas:  "g g g r" 
+                          "s m m m" 
+                          "f f h h";
   }
   
   .wrapper>div {
@@ -50,27 +50,27 @@
   
   .header {
     /* Name this element to place it on the grid */
-    grid-area: head;
+    grid-area: h;
   }
   
   .header-right {
-    grid-area: hr;
+    grid-area: r;
   }
   
   .main-content {
-    grid-area: main;
+    grid-area: m;
   }
   
   .side-bar {
-    grid-area: side;
+    grid-area: s;
   }
   
   .footer {
-    grid-area: foot;
+    grid-area: f;
   }
   
   .footer-right {
-    grid-area: fr;
+    grid-area: g;
   }
   
   .wrapper>div:nth-child(1) {

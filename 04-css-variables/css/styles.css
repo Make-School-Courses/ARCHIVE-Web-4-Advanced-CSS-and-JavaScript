@@ -1,7 +1,12 @@
 /* SCSS */
+
+* {
+  
+}
+
 :root {
   --button-color: #fff; 
-  --transition-time: 400ms
+  --transition-time: 400ms;
 }
 
 body, html {
@@ -58,6 +63,7 @@ body {
 #sprite {
   --x: 0;
   --y: 0;
+  --direction: 1;
   
   display: block;
   position: absolute;
@@ -69,7 +75,10 @@ body {
   background-image: url(../images/alien-11.png);
   background-repeat: no-repeat;
   background-position: center;
-  transform: translate(calc(var(--x, 0) * 1px - 50%), calc(var(--y, 0) * 1px - 50%)); 
+  transform: 
+    translateX(calc(var(--x, 0) * 1px - 50%))
+    translateY(calc(var(--y, 0) * 1px - 50%))
+    scaleX(var(--direction)); 
   transition: var(--transition-time);
 }
 
@@ -84,10 +93,13 @@ body {
   text-align: center;
   line-height: calc(var(--size) * 1px); 
   margin: 5px;
+  transition: 200ms;
+  box-shadow: 0 0 0 var(--button-color) inset;
 }
 
 .button:hover {
-  background-color: var(--button-color);
+/*  background-color: var(--button-color);*/
+  box-shadow: 0 0 80px var(--button-color) inset;
   color: var(--text-color); 
 }
 
