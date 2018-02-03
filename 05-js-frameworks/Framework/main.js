@@ -89,11 +89,31 @@ for (var i = 0; i < 100; i++) {
 //requestAnimationFrame(onFrame2)
 // ***************************************************
 
+
+
+// ***************************************************
 // This block animates the boxes as the mouse moves. 
 window.onmousemove = function(e) {
   for (var i in boxes) {
     boxes[i].update(e.pageX)
   }
 } 
+// **************************************************
+
+
+// **************************************************
+// This example use the scroll position to trigger 
+// animation. The example is not very good since the 
+// boxes scroll out of site. Scroll slowly and see the 
+// images fade in and out. 
+//document.body.style.height = '2000px'
+//
+//addEventListener("scroll", function() {
+//  var max = document.body.scrollHeight - innerHeight;
+//  for (var i in boxes) {
+//    boxes[i].update(pageYOffset)
+//  }
+//});
+// **************************************************
 
 
