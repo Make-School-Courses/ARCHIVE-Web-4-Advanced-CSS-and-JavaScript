@@ -97,11 +97,120 @@ Add the element as a child of another element with
 `Node.appendChild(child)` where Node is the parent node and 
 child is the new child node you are adding to the DOM. 
 
+
+### Working with the DOM elements and JS
+
+DOM elements can hold data in CSS variables and attributes.
+
+`node.setAttribute()`
+
+and 
+
+`node.getAttribute()`
+
+This can be awkward if you are getting and setting values
+often. 
+
+A better approach is to create a JavaScript Object that 
+stores a reference to the DOM element along with properties
+that are needed. 
+
+Define a class
+
+```
+function Box(x, y, w, h, r, c) {
+  // Set class properties and assign reasonable defaults
+  this.x        = x      || 0
+  this.y        = y      || 0
+  this.width    = w      || 100
+  this.height   = h      || 100
+  this.rotation = r      || 0
+  this.color    = '#f0f' || c 
+  // Make an element 
+  this.el = document.createElement('div')
+  // Set some styles
+  this.el.style.backgroundColor = this.color
+  this.el.style.position = 'absolute'
+  this.el.style.width = this.width
+  this.el.style.height = this.height
+}
+// Assign methods to the class via the prototype
+Box.prototype.update = function() {
+  this.el.style.transform = `
+    translateX(${this.x}px) 
+    translateY(${this.y}px) 
+    rotate(${this.rotation}deg)`
+}
+
+// To create an instance of Box 
+const box = new Box(120, 200, 60, 40, '#f00')
+// The box needs to be added to the DOM
+document.getElementById('main').appendChild(box)
+```
+
+To keep track of a group of objects add them to an array. 
+
+Make 10 boxes with a random x and y, and default other
+properties. 
+
+```
+const boxes = []
+const main = document.getElementById('main')
+for (let i = 0; i < 10; i++) {
+  const x = Math.random() * 400
+  const y = Math.random() * 400
+  cosnt box = new Box(x, y)
+  boxes.push(box)
+  main.appendChild(box)
+}
+```
+
+If you are creating and removing objects you'll want to 
+watch for potential memory leaks. 
+
+DOM elements, and JavaScript Object take up memory. If you
+are creating both when removing one you'll have to also
+remove the other. 
+
+```
+Box.prototype.move = function() {
+  this.x += 10
+  this.rotation += 2
+  if (this.x > 600) {
+    this.destroy()
+  } else {
+    this.update()
+  }
+}
+
+Box.prototype.destroy = function() {
+  // Remove this element from the DOM
+  this.el.remove() 
+  // Remove this box from boxes
+  boxes.splice(boxes.indexOf(this), 1) 
+}
+```
+
+### Animate things with requestAnimationFrame
+
+The `requestAnimationFrame` method executes a callback on the 
+next repaint. A repaint occurs when the browser redraws the 
+contents of the window. 
+
+Syncing animation to a repaint optimizes performance. 
+
+![timer-vs-frame.png](timer-vs-frame.png)
+
+In the image you'll notice the repaints happen sometimes
+twice 
+
 # Event Listeners
 
 
 
 # JavaScript Module Pattern 
+
+
 
 ## Scope Review 
 
