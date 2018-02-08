@@ -26,11 +26,14 @@ Get a reference to a DOM element with:
 
 ```
 document.getElementById()
-document.getElementsByClassName()
-document.querySelector()
-document.querySelectorAll()
+document.getElementsByClassName() // Nodelist Collection
+document.getElementsByTagName() 
+document.querySelector()          // 
+document.querySelectorAll()       // HTML Collection (magic)
 document.getElementsByTagName()
 ...
+
+// document.querySelectorAll('.box')
 ```
 
 Really all you ever need to use is: 
@@ -118,22 +121,27 @@ that are needed.
 Define a class
 
 ```
-function Box(x, y, w, h, r, c) {
+function Box(x, y, w, h, r, c, el) {
   // Set class properties and assign reasonable defaults
   this.x        = x      || 0
   this.y        = y      || 0
   this.width    = w      || 100
   this.height   = h      || 100
   this.rotation = r      || 0
-  this.color    = '#f0f' || c 
+  this.color    = c      || '#f0f'
   // Make an element 
-  this.el = document.createElement('div')
+  this.el = el || document.createElement('div')
   // Set some styles
   this.el.style.backgroundColor = this.color
   this.el.style.position = 'absolute'
   this.el.style.width = this.width
   this.el.style.height = this.height
+  this.el.style.opacity = 1
+  this.el.style.borderRadius = '5px'
+  
+  this.el.classList.add('special')
 }
+
 // Assign methods to the class via the prototype
 Box.prototype.update = function() {
   this.el.style.transform = `
@@ -145,7 +153,9 @@ Box.prototype.update = function() {
 // To create an instance of Box 
 const box = new Box(120, 200, 60, 40, '#f00')
 // The box needs to be added to the DOM
-document.getElementById('main').appendChild(box)
+const main = document.getElementById('main')
+main.appendChild(box.el)
+main.appendChild(box.el)
 ```
 
 To keep track of a group of objects add them to an array. 
@@ -155,7 +165,9 @@ properties.
 
 ```
 const boxes = []
+
 const main = document.getElementById('main')
+
 for (let i = 0; i < 10; i++) {
   const x = Math.random() * 400
   const y = Math.random() * 400
@@ -202,7 +214,25 @@ Syncing animation to a repaint optimizes performance.
 ![timer-vs-frame.png](timer-vs-frame.png)
 
 In the image you'll notice the repaints happen sometimes
-twice 
+twice. 
+
+
+```
+const box = new Box()
+var deltaTime = 0 
+
+function onFrame(time) {
+  deltaTime = time - deltaTime 
+  
+  dx = velocity * deltaTime
+  
+  if (notEnding) {
+    requestAnimationFrame(onFrame)
+  } 
+}
+
+requestAnimationFrame(onFrame)
+```
 
 # Event Listeners
 

@@ -1,22 +1,59 @@
-var box = document.getElementById("box")
-var fw = FW(box, 200, 200, 25)
-fw.color('green')
 
-var box2 = document.getElementById("box2")
-var fw2 = FW(box2, 400, 200, 40)
-fw2.color('yellow').move(350, 70).rotate(0).update();
+(function() {
+  const box = document.createElement('div')
+  document.querySelector('body').appendChild(box)
+  const sprite = Sprite(box, 300, 200)
 
-var t = 0
+  console.log(sprite)
 
-function onFrame(dt) {
-  t += 0.1
-  var x = fw.x < 400 ? fw.x + 1 : 0
-  var y = 200 + Math.sin(t) * 100
-  fw.move(x, y).rotate(t * 2).update()
-  requestAnimationFrame(onFrame)
-}
+  let t = 0
 
-requestAnimationFrame(onFrame)
+  function onFrame(dt) {
+    t += 0.05
+    const x = Math.sin(t) * 100 + 200
+    const y = Math.cos(t) * 100 + 200
+    const z = Math.sin(t) * 100 - 200
+    sprite.move(x, y, z).rotate(0, t * 10, 0).update()
+    requestAnimationFrame(onFrame)
+  }
+
+  requestAnimationFrame(onFrame);
+
+  
+}());
+
+
+(function() {
+  // test and b are scoped to this block
+  const test = Test('b')
+  test.what()
+  console.log(test)
+
+  const b = $('#box')
+  console.log(b)
+})()
+
+
+//var block = document.getElementById("box")
+//var fw = FW(block, 200, 200, 25)
+//fw.color('green')
+//console.log(fw)
+//
+//var box2 = document.getElementById("box2")
+//var fw2 = FW(box2, 400, 200, 40)
+//fw2.color('yellow').move(350, 70).rotate(0).update();
+//
+//var t = 0
+//
+//function onFrame(dt) {
+//  t += 0.1
+//  var x = fw.x < 400 ? fw.x + 1 : 0
+//  var y = 200 + Math.sin(t) * 100
+//  fw.move(x, y).rotate(t * 2).update()
+//  requestAnimationFrame(onFrame)
+//}
+//
+//requestAnimationFrame(onFrame)
 
 
 
@@ -38,34 +75,34 @@ requestAnimationFrame(onFrame)
 
 
 // Store some boxes
-const boxes = []
+//const boxes = []
 
 // make 100 boxes with some random properties.
 
-for (var i = 0; i < 100; i++) {
-  var el = document.createElement("div")  // Create a div
-  el.style.width = '20px'                 
-  el.style.height = '20px'
-  el.style.backgroundColor = 'red'
-  el.style.border = 'solid 1px #000'
-  el.style.display = 'inline-block'
-  el.style.transition = '1000ms'          // Assign a transition
-  el.style.opacity = 0                    // opacity 0
-  
-  const start = Math.random() * 1000 // Generate some random starting 
-  const end = start + 200            // and ending values 
-  
-  document.body.appendChild(el) // Add this element to the DOM
-  
-  // Make some Range Animator instances
-  boxes.push(RA(el, start, end, function() {
-    // Enter callback - could do anything here. 
-    this.el.style.opacity = 1 
-  }, function() {
-    // Leave callback - could do anything here. 
-    this.el.style.opacity = 0
-  }))
-}
+//for (var i = 0; i < 100; i++) {
+//  var el = document.createElement("div")  // Create a div
+//  el.style.width = '20px'                 
+//  el.style.height = '20px'
+//  el.style.backgroundColor = 'red'
+//  el.style.border = 'solid 1px #000'
+//  el.style.display = 'inline-block'
+//  el.style.transition = '1000ms'          // Assign a transition
+//  el.style.opacity = 0                    // opacity 0
+//  
+//  const start = Math.random() * 1000 // Generate some random starting 
+//  const end = start + 200            // and ending values 
+//  
+//  document.body.appendChild(el) // Add this element to the DOM
+//  
+//  // Make some Range Animator instances
+//  boxes.push(RA(el, start, end, function() {
+//    // Enter callback - could do anything here. 
+//    this.el.style.opacity = 1 
+//  }, function() {
+//    // Leave callback - could do anything here. 
+//    this.el.style.opacity = 0
+//  }))
+//}
 
 
 // ***************************************************
@@ -93,11 +130,11 @@ for (var i = 0; i < 100; i++) {
 
 // ***************************************************
 // This block animates the boxes as the mouse moves. 
-window.onmousemove = function(e) {
-  for (var i in boxes) {
-    boxes[i].update(e.pageX)
-  }
-} 
+//window.onmousemove = function(e) {
+//  for (var i in boxes) {
+//    boxes[i].update(e.pageX)
+//  }
+//} 
 // **************************************************
 
 
