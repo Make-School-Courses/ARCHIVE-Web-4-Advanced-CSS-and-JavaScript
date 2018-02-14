@@ -41,11 +41,11 @@
   
   const sprites = []
   
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 1000; i++) {
     const x = Math.random() * 500
     const y = Math.random() * -500
     const h = Math.random() * 360
-    const s = Math.random() * 30 + 10
+    const s = Math.random() * 10 + 5
     const dy = Math.random() * 3 + 3
     const dr = Math.random() * 6 - 3
     const sprite = Sprite(x, y, 0, s, s, `hsla(${h}, 100%, 50%, 1)`)

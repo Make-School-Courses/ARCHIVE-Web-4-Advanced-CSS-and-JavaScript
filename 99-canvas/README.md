@@ -63,6 +63,8 @@ existing image in the conext.
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
+// clear
+
 ctx.fillStyle = 'rgba(200, 0, 0, 0.4)'
 ctx.fillRect(20, 20, 200, 60)
 
