@@ -88,6 +88,9 @@ projects.
 // When it’s not a constructor function or class, it’s 
 // called a factory function.
 
+
+
+
 (function() {
   // Define a class object 
   const Test = function(a) {
@@ -103,4 +106,47 @@ projects.
     // This method returns new Test objects
     return new Test(a)
   } 
-}())
+}());
+
+
+
+(function() {
+  var Thing = function(it) {
+    this.it = it 
+  }
+  
+  Thing.prototype.mult = function() {
+    this.it = this.it * 2
+    return this
+  }
+  
+  Thing.prototype.party = function() {
+    this.it = Math.sqrt(this.it)
+    return this
+  }
+  
+  window.Thing = function(it2) {
+    return new Thing(it2)
+  }
+})();
+
+
+
+
+// Module pattern 
+(function() {
+  var thing = Thing(2)
+  console.log(thing)
+  thing.mult().mult().mult()
+  console.log(thing)
+  thing.mult()
+  thing.party()
+  thing.mult()
+})()
+
+
+
+
+
+
+

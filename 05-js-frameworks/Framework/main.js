@@ -3,7 +3,7 @@
   const box = document.createElement('div')
   document.querySelector('body').appendChild(box)
   const sprite = Sprite(box, 300, 200)
-
+  
   console.log(sprite)
 
   let t = 0
@@ -18,9 +18,20 @@
   }
 
   requestAnimationFrame(onFrame);
-
+  
+  box.onclick = function() {
+    
+  }
   
 }());
+
+
+
+function names() {
+  var a = "Hello World";  // function scope
+  let b = "B";            // Block scope
+  const c = "C";          // constant block scope
+}
 
 
 (function() {

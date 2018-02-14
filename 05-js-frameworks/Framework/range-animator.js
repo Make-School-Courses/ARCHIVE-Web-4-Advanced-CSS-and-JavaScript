@@ -38,6 +38,9 @@ leave - callback, invokd when value is less than start or greater than end
         // enters zone 
         this.enter()
       }
+    }, 
+    reset: function() {
+      
     }
   }
   
