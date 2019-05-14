@@ -1,4 +1,6 @@
-# WEB 4 - Advanced CSS
+# ARCHIVE - WEB 4 - Advanced CSS
+
+## NOTE: This repo is no longer maintained
 
 ## Perequisites 
 
